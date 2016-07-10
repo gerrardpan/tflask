@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if name %}
+    <title>{{ name }}'s personal page</title>
+    {%endif%}
+    <script type="text/ecmascript" src="{{url_for('static',filename='js/jquery-3.0.0.min.js',_external=True)}}"></script>
+    <script type="text/javascript" src={{url_for('static',filename='js/tsha.js',_external=True)}}></script>
+
+    <script>
+        $(document).ready(function () {
+              var s="18278077237";
+            (function (s) {
+            var t=hex_sha1(s);
+            alert(t);
+            })(s);
+            $('ul').click(function () {
+                alert('click the link');
+                   $.get('artlist/all',function (data) {
+                      // alert(data);
+                       $('ul').append(data);
+                   });
+                return false;
+               });
+
+        });
+    </script>
+</head>
+<body>
+     <p>hello,{{name}}!</p>
+                <ul>
+                    <li><a href="artlist/all">article list</a></li>
+                    <li><a href='/'>aaaaaaaaaaaaaaaaaaa</a></li>
+             <li><a href='/'>bbbbbbbbbbbbbbbbbbb</a></li>
+             <li><a href='/'>ccccccccccccccccccc</a></li>
+                </ul>
+</body>
+</html>
